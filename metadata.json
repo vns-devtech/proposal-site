@@ -1,0 +1,7 @@
+{
+  "name": "One Question, Infinite Feelings… 💌",
+  "description": "An interactive, playful and deeply romantic proposal experience with teasing surprises, 101 reasons, love quiz, memories, typewriter letter, and a cinematic night sky proposal.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
+

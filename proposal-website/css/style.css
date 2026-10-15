@@ -1,0 +1,375 @@
+/* ========================================================
+   ONE QUESTION, INFINITE FEELINGS… 💌
+   The Most Beautiful, Teasing & Romantic Proposal Website
+   ======================================================== */
+
+:root {
+  --blush: #FFC6D4;
+  --rose: #FF6F91;
+  --cream: #FFF8F1;
+  --lavender: #E8DDF8;
+  --burgundy: #6D2446;
+  --gold: #FFE082;
+  --font-serif: 'Playfair Display', Georgia, serif;
+  --font-handwriting: 'Caveat', cursive, sans-serif;
+  --font-sans: 'Plus Jakarta Sans', system-ui, sans-serif;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--cream);
+  color: var(--burgundy);
+  font-family: var(--font-sans);
+  line-height: 1.6;
+  overflow-x: hidden;
+  position: relative;
+}
+
+::selection {
+  background: var(--blush);
+  color: var(--burgundy);
+}
+
+/* Background Canvas */
+#bg-canvas {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.85;
+}
+
+/* Custom Cursor */
+.cursor-dot {
+  position: fixed;
+  width: 6px;
+  height: 6px;
+  background-color: var(--rose);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 0 8px rgba(255, 111, 145, 0.8);
+  transition: width 0.15s, height 0.15s;
+}
+
+.cursor-follower {
+  position: fixed;
+  width: 28px;
+  height: 28px;
+  border: 1px solid rgba(255, 111, 145, 0.6);
+  border-radius: 50%;
+  background: rgba(255, 198, 212, 0.15);
+  pointer-events: none;
+  z-index: 9998;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+}
+
+@media (pointer: coarse) {
+  .cursor-dot, .cursor-follower {
+    display: none !important;
+  }
+}
+
+/* Header & Nav */
+header.top-nav {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  width: 100%;
+  backdrop-filter: blur(14px);
+  background: rgba(255, 248, 241, 0.85);
+  border-bottom: 1px solid rgba(255, 198, 212, 0.5);
+}
+
+.nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0.85rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.nav-brand {
+  font-family: var(--font-serif);
+  font-weight: 700;
+  font-size: 1.25rem;
+  color: var(--burgundy);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: rgba(109, 36, 70, 0.8);
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.nav-links a:hover {
+  color: var(--rose);
+}
+
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+  }
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.btn-pill {
+  padding: 0.45rem 1rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  border-radius: 9999px;
+  border: 1px solid var(--blush);
+  background: white;
+  color: var(--burgundy);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  transition: all 0.2s;
+}
+
+.btn-pill.primary {
+  background: var(--rose);
+  border-color: var(--rose);
+  color: white;
+}
+
+.btn-pill:hover {
+  transform: translateY(-1px);
+}
+
+/* Glass Cards */
+.glass-card {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 198, 212, 0.5);
+  border-radius: 1.5rem;
+  box-shadow: 0 10px 30px -5px rgba(109, 36, 70, 0.06);
+}
+
+.glass-card-dark {
+  background: rgba(45, 15, 30, 0.85);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 198, 212, 0.2);
+  border-radius: 1.75rem;
+  box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.5);
+}
+
+/* Section Common */
+section {
+  position: relative;
+  z-index: 10;
+  padding: 5rem 1rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.section-kicker {
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  font-weight: 700;
+  color: var(--rose);
+}
+
+.section-title {
+  font-family: var(--font-serif);
+  font-size: clamp(2rem, 4vw, 3.25rem);
+  font-weight: 700;
+  color: var(--burgundy);
+  margin-top: 0.5rem;
+  margin-bottom: 0.75rem;
+  line-height: 1.2;
+}
+
+.section-desc {
+  font-size: 1rem;
+  color: rgba(109, 36, 70, 0.8);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* 3D Envelope */
+.envelope-wrap {
+  width: 320px;
+  height: 200px;
+  position: relative;
+  margin: 3rem auto 2rem;
+  cursor: pointer;
+  perspective: 1000px;
+}
+
+.envelope-body {
+  width: 100%;
+  height: 100%;
+  background: var(--cream);
+  border: 2px solid var(--blush);
+  border-radius: 1rem;
+  position: relative;
+  box-shadow: 0 10px 25px rgba(109, 36, 70, 0.08);
+  transition: transform 0.6s;
+}
+
+.envelope-flap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 110px;
+  background: #FFEBF0;
+  border-bottom: 2px solid var(--blush);
+  border-radius: 1rem 1rem 0 0;
+  clip-path: polygon(0% 0%, 100% 0%, 50% 100%);
+  transform-origin: top;
+  transition: transform 0.6s;
+  z-index: 20;
+}
+
+.envelope-wrap.open .envelope-flap {
+  transform: rotateX(180deg);
+  opacity: 0.5;
+}
+
+.wax-seal {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%, 50%);
+  width: 44px;
+  height: 44px;
+  background: radial-gradient(circle, var(--rose), var(--burgundy));
+  border-radius: 50%;
+  border: 2px solid white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  animation: pulseSeal 2s infinite ease-in-out;
+}
+
+@keyframes pulseSeal {
+  0%, 100% { transform: translate(-50%, 50%) scale(1); }
+  50% { transform: translate(-50%, 50%) scale(1.1); }
+}
+
+.letter-sheet {
+  position: absolute;
+  left: 1rem;
+  right: 1rem;
+  background: white;
+  border-radius: 0.75rem;
+  padding: 1.25rem;
+  border: 1px solid var(--blush);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all 0.6s ease-out;
+  z-index: 30;
+}
+
+.envelope-wrap.open .letter-sheet {
+  opacity: 1;
+  transform: translateY(-130px);
+}
+
+/* Teasing Section */
+.tease-card {
+  max-width: 750px;
+  margin: 0 auto;
+  padding: 3rem 2rem;
+  text-align: center;
+}
+
+.dodge-btn {
+  transition: transform 0.15s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* Reasons Grid */
+.reasons-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2.5rem;
+}
+
+.reason-card {
+  padding: 1.5rem;
+  border-radius: 1rem;
+  background: white;
+  border: 1px solid rgba(255, 198, 212, 0.6);
+  box-shadow: 0 4px 12px rgba(109, 36, 70, 0.04);
+  transition: transform 0.2s, box-shadow 0.2s;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.reason-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(109, 36, 70, 0.08);
+}
+
+/* Proposal Night Scene */
+.proposal-sky {
+  background: linear-gradient(180deg, #180512 0%, #2A091E 50%, #12030D 100%);
+  color: white;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  border-radius: 2rem;
+  margin: 2rem 1rem;
+  padding: 4rem 1.5rem;
+}
+
+.proposal-moon {
+  width: 80px;
+  height: 80px;
+  background: radial-gradient(circle, #FFF7E6 40%, #FFE082 100%);
+  border-radius: 50%;
+  box-shadow: 0 0 40px rgba(255, 224, 130, 0.6);
+  margin: 0 auto 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+.proposal-moon:hover {
+  transform: scale(1.1);
+}
